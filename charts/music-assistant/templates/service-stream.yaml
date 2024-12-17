@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-stream
+  labels:
+    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.stream.type }}
+  ports:
+    - port: {{ .Values.service.stream.port }}
+      targetPort: stream
+      protocol: TCP
+      name: stream   
+  selector:
+    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
