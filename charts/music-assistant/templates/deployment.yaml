@@ -49,9 +49,12 @@ spec:
             - name: json-rpc
               containerPort: {{ .Values.service.jsonrpc.port }}
               protocol: TCP
-            - name: slimproto
+            - name: slimproto-tcp
               containerPort: {{ .Values.service.slimproto.port }}
               protocol: TCP
+            - name: slimproto-udp
+              containerPort: {{ .Values.service.slimproto.port }}
+              protocol: UDP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
