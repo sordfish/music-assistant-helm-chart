@@ -124,10 +124,17 @@ volumes: []
 #     optional: false
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
+volumeMounts:
+  - mountPath: "/data"
+    name: "music-assistant-data"
+
+persistance:
+  config:
+    enabled: false
+    size: 10Gi
+    storageClass: local-path
+    accessModes:
+      - ReadWriteOnce  
 
 nodeSelector: {}
 

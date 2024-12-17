@@ -35,19 +35,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto-tcp
   labels:
     {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.slimproto.type }}
   ports:
-    - port: {{ .Values.service.slimproto.port }}
-      targetPort: slimproto-tcp
-      protocol: TCP
-      name: slimproto-tcp
-    - port: {{ .Values.service.slimproto.port }}  
       targetPort: slimproto-udp
       protocol: UDP
       name: slimproto-udp
   selector:
     {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto-udp
+  labels:
+    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.slimproto.type }}
+  ports:
+    - port: {{ .Values.service.slimproto.port }}  
+      targetPort: slimproto-udp
+      protocol: UDP
+      name: slimproto-udp
+  selector:
+    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}    
