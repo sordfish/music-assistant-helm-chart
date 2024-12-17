@@ -57,8 +57,17 @@ service:
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
     port: 8095
   stream:
-    type: LoadBalancer
+    type: ClusterIP
     port: 8097
+  squeezeboxcli:
+    type: ClusterIP
+    port: 9090
+  jsonrpc:
+    type: ClusterIP
+    port: 9000
+  slimproto:
+    type: ClusterIP
+    port: 3483
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:

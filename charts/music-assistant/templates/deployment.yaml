@@ -42,7 +42,16 @@ spec:
               protocol: TCP
             - name: stream
               containerPort: {{ .Values.service.stream.port }}
-              protocol: TCP  
+              protocol: TCP
+            - name: squeezebox-cli
+              containerPort: {{ .Values.service.squeezeboxcli.port }}
+              protocol: TCP
+            - name: json-rpc
+              containerPort: {{ .Values.service.jsonrpc.port }}
+              protocol: TCP
+            - name: slimproto
+              containerPort: {{ .Values.service.slimproto.port }}
+              protocol: TCP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:

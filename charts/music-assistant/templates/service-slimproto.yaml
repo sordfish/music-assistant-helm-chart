@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-squeezebox-cli
+  labels:
+    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.squeezeboxcli.type }}
+  ports:
+    - port: {{ .Values.service.squeezeboxcli.port }}
+      targetPort: squeezebox-cli
+      protocol: TCP
+      name: squeezebox-cli
+  selector:
+    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-json-rpc
+  labels:
+    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.jsonrpc.type }}
+  ports:
+    - port: {{ .Values.service.jsonrpc.port }}
+      targetPort: json-rpc
+      protocol: TCP
+      name: json-rpc
+  selector:
+    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto
+  labels:
+    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.slimproto.type }}
+  ports:
+    - port: {{ .Values.service.slimproto.port }}
+      targetPort: slimproto
+      protocol: TCP
+      name: slimproto
+  selector:
+    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
