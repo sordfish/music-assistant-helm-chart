@@ -42,8 +42,12 @@ spec:
   type: {{ .Values.service.slimproto.type }}
   ports:
     - port: {{ .Values.service.slimproto.port }}
-      targetPort: slimproto
+      targetPort: slimproto-tcp
       protocol: TCP
-      name: slimproto
+      name: slimproto-tcp
+    - port: {{ .Values.service.slimproto.port }}  
+      targetPort: slimproto-udp
+      protocol: UDP
+      name: slimproto-udp
   selector:
     {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
