@@ -130,7 +130,7 @@ volumeMounts: []
 #   - mountPath: "/data"
 #     name: "music-assistant-data"
 
-persistance:
+persistence:
   config:
     enabled: false
     size: 10Gi
