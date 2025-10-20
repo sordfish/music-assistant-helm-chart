@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   music-assistant-helm-chart:
   - apiVersion: v2
+    appVersion: 2.6.0
+    created: "2025-10-20T14:26:49.64254907Z"
+    description: A Helm chart for Kubernetes
+    digest: fc1b4893c5358f1a2c00ae17d38cdb1450f01df156d9a5bd12abf3aa7552e79e
+    name: music-assistant-helm-chart
+    type: application
+    urls:
+    - https://github.com/sordfish/music-assistant-helm-chart/releases/download/music-assistant-helm-chart-0.1.14/music-assistant-helm-chart-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
     appVersion: 2.4.2
     created: "2025-03-04T19:56:46.65939463Z"
     description: A Helm chart for Kubernetes
@@ -121,4 +131,4 @@ entries:
     urls:
     - https://github.com/sordfish/music-assistant-helm-chart/releases/download/music-assistant-helm-chart-0.1.2/music-assistant-helm-chart-0.1.2.tgz
     version: 0.1.2
-generated: "2025-03-04T19:56:46.659447809Z"
+generated: "2025-10-20T14:26:49.642701144Z"
