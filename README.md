@@ -1,1 +1,1 @@
-# music-assistant-helm-chart
+# music-assistant

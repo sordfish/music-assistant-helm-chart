@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}
+  name: {{ include "music-assistant.fullname" . }}
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 6 }}
+      {{- include "music-assistant.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "music-assistant-helm-chart.labels" . | nindent 8 }}
+        {{- include "music-assistant.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "music-assistant-helm-chart.serviceAccountName" . }}
+      serviceAccountName: {{ include "music-assistant.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

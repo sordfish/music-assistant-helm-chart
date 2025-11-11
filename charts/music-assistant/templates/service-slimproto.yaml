@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}-squeezebox-cli
+  name: {{ include "music-assistant.fullname" . }}-squeezebox-cli
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.squeezeboxcli.type }}
   ports:
@@ -12,15 +12,15 @@ spec:
       protocol: TCP
       name: squeezebox-cli
   selector:
-    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+    {{- include "music-assistant.selectorLabels" . | nindent 4 }}
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}-json-rpc
+  name: {{ include "music-assistant.fullname" . }}-json-rpc
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.jsonrpc.type }}
   ports:
@@ -29,15 +29,15 @@ spec:
       protocol: TCP
       name: json-rpc
   selector:
-    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+    {{- include "music-assistant.selectorLabels" . | nindent 4 }}
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto-tcp
+  name: {{ include "music-assistant.fullname" . }}-slimproto-tcp
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.slimproto.type }}
   ports:
@@ -46,15 +46,15 @@ spec:
       protocol: TCP
       name: slimproto-tcp
   selector:
-    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}
+    {{- include "music-assistant.selectorLabels" . | nindent 4 }}
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}-slimproto-udp
+  name: {{ include "music-assistant.fullname" . }}-slimproto-udp
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.slimproto.type }}
   ports:
@@ -63,4 +63,4 @@ spec:
       protocol: UDP
       name: slimproto-udp
   selector:
-    {{- include "music-assistant-helm-chart.selectorLabels" . | nindent 4 }}    
+    {{- include "music-assistant.selectorLabels" . | nindent 4 }}    

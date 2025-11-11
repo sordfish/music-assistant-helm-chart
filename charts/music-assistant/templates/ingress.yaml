@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}
+  name: {{ include "music-assistant.fullname" . }}
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "music-assistant-helm-chart.fullname" $ }}-web
+                name: {{ include "music-assistant.fullname" $ }}-web
                 port:
                   number: {{ $.Values.service.web.port }}
           {{- end }}

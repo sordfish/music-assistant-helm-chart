@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "music-assistant-helm-chart.fullname" . }}
+  name: {{ include "music-assistant.fullname" . }}
   labels:
-    {{- include "music-assistant-helm-chart.labels" . | nindent 4 }}
+    {{- include "music-assistant.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "music-assistant-helm-chart.fullname" . }}
+    name: {{ include "music-assistant.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
