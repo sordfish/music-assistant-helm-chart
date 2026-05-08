@@ -68,6 +68,9 @@ service:
   slimproto:
     type: ClusterIP
     port: 3483
+  sendspin:
+    type: ClusterIP
+    port: 8927
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
