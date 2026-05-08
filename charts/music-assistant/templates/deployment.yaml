@@ -57,6 +57,9 @@ spec:
             - name: slimproto-udp
               containerPort: {{ .Values.service.slimproto.port }}
               protocol: UDP
+            - name: sendspin
+              containerPort: {{ .Values.service.sendspin.port }}
+              protocol: TCP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
